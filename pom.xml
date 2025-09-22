@@ -52,6 +52,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Banco em memória só para TESTES -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -70,7 +77,13 @@
 				<goals><goal>report</goal></goals>
 				</execution>
 			</executions>
+			  	<configuration>
+					<excludes>
+					<exclude>br/edu/insper/curso/CursoApplication.class</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
